@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -103,10 +104,22 @@ body {
     z-index: 2;
 }
 
+.sign-in .remember-me {
+    position: relative;
+    width: 100%;
+}
+
+.sign-in .remember-me * {
+    width: min-content;
+}
+
+
+
 /* Styling for sign-in form when container is active */
 .container.active .sign-in {
     transform: translateX(100%);
 }
+
 
 /* Styling for sign-up form */
 .sign-up {
@@ -229,4 +242,45 @@ body {
 /* Styling for toggle panel on the right when container is active */
 .container.active .toggle-right {
     transform: translateX(200%);
+}
+
+/* For small devices (phones, 768px and below) */
+@media only screen and (max-width: 572px) {
+
+    .container {
+        display: flex;
+    }
+
+    .sign-in {
+        width: 100%;
+    }
+    .container.active .sign-up {
+        transform: none;
+        width: 100%;
+        /* width: 100%; */
+    }
+
+    .toggle-container {
+        top: 82%;
+        width: 70px;
+        height: 70px;
+        border-radius: 130px;
+        margin: 10px;
+    }
+
+    .toggle-right h1,
+    .toggle-right p,
+    .toggle-left h1,
+    .toggle-left p {
+        display: none;
+    }
+
+    .container.active .toggle-container {
+        transform: translate(-100%);
+        border-radius: 130px 130px 130px 130px;
+    }
+    
+    .container button.hidden {
+        border-color: #00000000;
+    }
 }
